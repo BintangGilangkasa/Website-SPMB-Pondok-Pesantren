@@ -258,7 +258,7 @@ export default function TransactionsMonitoring() {
         <Button
           variant="primary"
           size="md"
-          className="bg-[#8C583C] hover:bg-[#734730] text-white px-5 py-2.5 rounded-xl shadow-xs w-full sm:w-auto"
+          className="bg-button hover:bg-[#734730] text-white px-5 py-2.5 rounded-xl shadow-xs w-full sm:w-auto"
           onClick={() => setIsDrawerOpen(true)}
         >
           Buka Daftar Transaksi

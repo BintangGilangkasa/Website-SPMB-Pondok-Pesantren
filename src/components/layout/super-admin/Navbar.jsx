@@ -55,7 +55,6 @@ export default function Navbar({ onToggleSidebar }) {
           title="Status Layanan Integrasi"
         >
           <Bell className="w-5 h-5" />
-          <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#D97706]" />
         </button>
 
         {/* Profil Dropdown Container */}
