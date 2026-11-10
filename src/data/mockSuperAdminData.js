@@ -14,7 +14,8 @@ export const mockDashboardData = {
     { date: "10-10", count: 49 },
     { date: "15-10", count: 67 },
     { date: "20-10", count: 76 },
-    { date: "25-10", count: 62 }
+    { date: "25-10", count: 62 },
+    { date: "30-10", count: 81 }
   ],
 
   // SA-01: Tenant Status Breakdown

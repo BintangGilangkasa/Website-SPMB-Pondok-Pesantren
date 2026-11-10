@@ -7,7 +7,7 @@ export default function SantriLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#FAF7F2]">
+    <div className="flex h-screen overflow-hidden bg-surface-super-admin">
       {/* Sidebar Khusus Portal Santri */}
       <SantriSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 

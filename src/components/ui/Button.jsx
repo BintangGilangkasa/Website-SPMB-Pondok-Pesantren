@@ -15,11 +15,11 @@ export default function Button({
   const baseStyle = 'font-semibold rounded-lg transition-all flex items-center justify-center gap-2 focus:outline-none select-none cursor-pointer';
 
   const variants = {
-    primary: 'bg-[#4A3B2C] hover:bg-[#382C21] text-white shadow-xs disabled:bg-[#A8988B]',
-    secondary: 'bg-[#FAF8F5] hover:bg-[#F2ECE1] text-[#3A2E2B] border border-[#E0D7C6]',
-    outline: 'border border-[#D6CBB8] text-[#3A2E2B] hover:bg-[#F2ECE1]',
-    danger: 'bg-[#C53939] hover:bg-[#A82B2B] text-white',
-    ghost: 'text-[#6E5A44] hover:bg-[#F0E6D6]',
+    primary: 'bg-primary-super-admin hover:bg-primary-hover-super-admin text-on-emphasis-super-admin shadow-xs disabled:bg-disabled-super-admin',
+    secondary: 'bg-surface-super-admin hover:bg-surface-accent-super-admin text-ink-super-admin border border-border-super-admin',
+    outline: 'border border-border-super-admin text-ink-super-admin hover:bg-surface-accent-super-admin',
+    danger: 'bg-error-foreground hover:bg-error-strong-super-admin text-on-emphasis-super-admin',
+    ghost: 'text-muted-super-admin hover:bg-surface-accent-super-admin',
   };
 
   const sizes = {
@@ -38,7 +38,7 @@ export default function Button({
     >
       {isLoading ? (
         <>
-          <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          <span className="w-3.5 h-3.5 border-2 border-surface-super-admin border-t-transparent rounded-full animate-spin" />
           <span>Memproses...</span>
         </>
       ) : (

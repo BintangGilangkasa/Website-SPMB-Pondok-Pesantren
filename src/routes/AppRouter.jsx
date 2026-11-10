@@ -9,6 +9,8 @@ import DashboardPlatform from "../pages/4-super-admin/01-dashboard/DashboardPlat
 import TenantManagement from "../pages/4-super-admin/02-tenant/TenantManagement";
 import UsersAndAccess from "../pages/4-super-admin/03-users-access/UsersAndAccess";
 import TransactionsMonitoring from "../pages/4-super-admin/04-transactions/TransactionsMonitoring";
+import PlatformSettings from "../pages/4-super-admin/05-platform-settings/PlatformSettings";
+
 
 export default function AppRoutes() {
   return (
@@ -20,6 +22,9 @@ export default function AppRoutes() {
           <Route path="tenant" element={<TenantManagement />} />
           <Route path="users-access" element={<UsersAndAccess />} />
           <Route path="transactions" element={<TransactionsMonitoring />} />
+          <Route path="platform-settings" element={<PlatformSettings />} />
+          
+        {/* 404 Not Found */}
         </Route>
       </Routes>
   );

@@ -7,7 +7,7 @@ export default function AdminInstitusiLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50">
+    <div className="flex h-screen overflow-hidden bg-surface-muted-super-admin">
       {/* Sidebar Khusus Back Office Admin Pesantren */}
       <AdminSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 

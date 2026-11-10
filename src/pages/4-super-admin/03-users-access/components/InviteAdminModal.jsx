@@ -57,11 +57,11 @@ export default function InviteAdminModal({ isOpen, onClose, onInviteSuccess }) {
         />
 
         <div className="space-y-1">
-          <label className="text-xs font-bold text-[#4A3B2C]">Pilih Institusi / Tenant</label>
+          <label className="text-xs font-bold text-ink-super-admin">Pilih Institusi / Tenant</label>
           <select
             value={formData.tenant}
             onChange={(e) => setFormData({ ...formData, tenant: e.target.value })}
-            className="w-full px-3 py-2 text-xs bg-[#FAF8F5] border border-[#DCD3C5] rounded-lg text-[#2B2118] font-semibold focus:outline-none focus:ring-1 focus:ring-[#8B5E34]"
+            className="w-full px-3 py-2 text-xs bg-surface-super-admin border border-border-super-admin rounded-lg text-ink-super-admin font-semibold focus:outline-none focus:ring-1 focus:ring-primary-super-admin"
           >
             <option value="Pesantren Al-Falah">Pesantren Al-Falah</option>
             <option value="Pondok Pendidikan An-Nur">Pondok Pendidikan An-Nur</option>
@@ -71,11 +71,11 @@ export default function InviteAdminModal({ isOpen, onClose, onInviteSuccess }) {
         </div>
 
         <div className="space-y-1">
-          <label className="text-xs font-bold text-[#4A3B2C]">Role Platform / Delegasi</label>
+          <label className="text-xs font-bold text-ink-super-admin">Role Platform / Delegasi</label>
           <select
             value={formData.role}
             onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-            className="w-full px-3 py-2 text-xs bg-[#FAF8F5] border border-[#DCD3C5] rounded-lg text-[#2B2118] font-semibold focus:outline-none focus:ring-1 focus:ring-[#8B5E34]"
+            className="w-full px-3 py-2 text-xs bg-surface-super-admin border border-border-super-admin rounded-lg text-ink-super-admin font-semibold focus:outline-none focus:ring-1 focus:ring-primary-super-admin"
           >
             <option value="Admin Utama Pesantren">Admin Utama Pesantren</option>
             <option value="Operator Platform">Operator Platform</option>

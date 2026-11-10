@@ -70,8 +70,8 @@ export default function UsersAndAccess() {
       role: newInvite.role,
       tenant: newInvite.tenant,
       status: 'AKTIF',
-      avatarBg: 'bg-[#E2F0E6]',
-      avatarColor: 'text-[#2D5A3C]',
+      avatarBg: 'bg-success-surface',
+      avatarColor: 'text-success-foreground',
       joinedAt: new Date().toISOString().slice(0, 16).replace('T', ' '),
       lastLogin: 'Belum Pernah',
     };
@@ -84,7 +84,7 @@ export default function UsersAndAccess() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6 font-sans text-[#2B2118] pb-12">
+    <div className="max-w-7xl mx-auto space-y-6 font-sans text-ink-super-admin pb-12">
       
       {/* 1. Page Header SA-03 */}
       <PageHeader
@@ -97,7 +97,7 @@ export default function UsersAndAccess() {
           <button
             type="button"
             onClick={() => alert('Menampilkan rincian seluruh daftar akun platform yang terdaftar.')}
-            className="text-xs font-semibold text-[#3A2E2B] border border-[#D6CBB8] bg-[#FAF8F5] px-3.5 py-2 rounded-xl hover:bg-[#F2ECE1] transition-colors"
+            className="text-xs font-semibold text-ink-super-admin border border-border-super-admin bg-surface-super-admin px-3.5 py-2 rounded-xl hover:bg-surface-accent-super-admin transition-colors"
           >
             Lihat akun
           </button>
@@ -105,7 +105,7 @@ export default function UsersAndAccess() {
           <button
             type="button"
             onClick={() => setIsInviteModalOpen(true)}
-            className="text-xs font-bold text-white bg-[#8C583C] hover:bg-[#734730] px-4 py-2 rounded-xl transition-colors shadow-xs flex items-center gap-1.5"
+            className="text-xs font-bold text-on-emphasis-super-admin bg-primary-super-admin hover:bg-primary-hover-super-admin px-4 py-2 rounded-xl transition-colors shadow-xs flex items-center gap-1.5"
           >
             <UserPlus className="w-4 h-4" />
             <span>Undang admin awal</span>
@@ -114,7 +114,7 @@ export default function UsersAndAccess() {
       </PageHeader>
 
       {/* 2. Navigation Tab Pills */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 border-b border-[#ECE5D8]">
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 border-b border-border-super-admin">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
@@ -123,8 +123,8 @@ export default function UsersAndAccess() {
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-[#4A3B2C] text-white shadow-xs'
-                  : 'bg-white text-[#6E5A44] hover:bg-[#FAF6F0] border border-[#ECE5D8]'
+                  ? 'bg-primary-super-admin text-on-emphasis-super-admin shadow-xs'
+                  : 'bg-surface-super-admin text-muted-super-admin hover:bg-surface-super-admin border border-border-super-admin'
               }`}
             >
               {tab.label}
@@ -176,11 +176,11 @@ export default function UsersAndAccess() {
 
           {/* Select Dropdown Lingkup Peran */}
           <div className="sm:col-span-5 space-y-1">
-            <label className="text-xs font-bold text-[#6E5A44]">Lingkup peran</label>
+            <label className="text-xs font-bold text-muted-super-admin">Lingkup peran</label>
             <select
               value={roleFilter}
               onChange={(e) => setRoleFilter(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FAF8F5] border border-[#DCD3C5] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#8B5E34] text-[#2B2118] font-semibold cursor-pointer"
+              className="w-full px-3.5 py-2 text-xs bg-surface-super-admin border border-border-super-admin rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-super-admin text-ink-super-admin font-semibold cursor-pointer"
             >
               <option value="Semua">Semua peran</option>
               <option value="Admin Utama Pesantren">Admin Utama Pesantren</option>
@@ -198,12 +198,12 @@ export default function UsersAndAccess() {
       </div>
 
       {/* 5. Callout Banner Penjelasan PRD SA-03 */}
-      <div className="bg-[#FAF6F0] border border-[#EFE8DC] rounded-2xl p-4 text-xs text-[#6E5A44] leading-relaxed shadow-xs">
+      <div className="bg-surface-super-admin border border-border-super-admin rounded-2xl p-4 text-xs text-muted-super-admin leading-relaxed shadow-xs">
         Akun login bersifat global, tetapi role platform tidak otomatis memberikan role tenant. Hak akses setiap tenant diperiksa tersendiri.
       </div>
 
       {/* Footer Disclaimer */}
-      <p className="text-[10px] text-[#A39485] text-center pt-2 leading-relaxed">
+      <p className="text-[10px] text-muted-super-admin text-center pt-2 leading-relaxed">
         SPMB - PROV v1.2 - DATA SIMULASI · Prototipe UI tanpa backend. Hak akses nyata wajib diperiksa di server.
       </p>
 

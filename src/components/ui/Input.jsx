@@ -16,8 +16,8 @@ export default function Input({
   return (
     <div className="flex flex-col gap-1 w-full text-left">
       {label && (
-        <label htmlFor={name} className="text-xs font-bold text-[#4A3B2C]">
-          {label} {required && <span className="text-red-500">*</span>}
+        <label htmlFor={name} className="text-xs font-bold text-ink-super-admin">
+          {label} {required && <span className="text-error-foreground">*</span>}
         </label>
       )}
       <input
@@ -27,14 +27,14 @@ export default function Input({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`px-3 py-2 text-xs bg-[#FAF8F5] border rounded-lg focus:outline-none focus:ring-1 transition-all ${
+        className={`px-3 py-2 text-xs bg-surface-super-admin border rounded-lg focus:outline-none focus:ring-1 transition-all ${
           error
-            ? 'border-red-500 focus:ring-red-300'
-            : 'border-[#DCD3C5] focus:ring-[#8B5E34] text-[#2B2118]'
+            ? 'border-error focus:ring-error'
+            : 'border-border-super-admin focus:ring-primary-super-admin text-ink-super-admin'
         } ${className}`}
         {...props}
       />
-      {error && <span className="text-[10px] font-semibold text-red-500">{error}</span>}
+      {error && <span className="text-[10px] font-semibold text-error-foreground">{error}</span>}
     </div>
   );
 }

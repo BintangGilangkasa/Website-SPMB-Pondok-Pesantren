@@ -37,14 +37,14 @@ export default function Sidebar({ isOpen, onClose }) {
       {/* Overlay Backdrop khusus Tampilan Mobile */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-xs transition-opacity"
+          className="fixed inset-0 bg-overlay-super-admin/60 z-40 lg:hidden backdrop-blur-xs transition-opacity"
           onClick={onClose}
         />
       )}
 
       {/* Main Sidebar Container */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-[#2B2118] text-[#E5D2C1] flex flex-col justify-between p-4 shrink-0 border-r border-[#3D3024] shadow-xl transition-transform duration-300 ease-in-out lg:translate-x-0 lg:sticky ${
+        className={`fixed top-0 left-0 z-50 h-screen w-85 bg-sidebar-deep-super-admin text-sidebar-foreground-super-admin flex flex-col justify-between p-4 shrink-0 border-r border-sidebar-border-super-admin shadow-xl transition-transform duration-300 ease-in-out lg:translate-x-0 lg:sticky ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -52,14 +52,14 @@ export default function Sidebar({ isOpen, onClose }) {
         <div className="flex-1 overflow-y-auto">
           
           {/* Header Brand Platform */}
-          <div className="p-3 bg-[#1F1712] rounded-xl border border-[#3E3024] mb-6 flex items-center justify-between">
+          <div className="p-3 bg-sidebar-deep-super-admin rounded-xl mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <img src={logo} alt="Logo SPMB TKI" className="w-13 h-13 object-contain" />
               <div>
-                <h1 className="font-serif text-sm font-bold tracking-tight text-white leading-none">
-                  spmb<span className="text-[#D4A373]">.</span>
+                <h1 className="font-serif text-sm font-bold tracking-tight text-on-emphasis-super-admin leading-none">
+                  spmb<span className="text-secondary-super-admin">.</span>
                 </h1>
-                <p className="text-[10px] tracking-wider text-[#A8988B] font-sans font-medium uppercase mt-1">
+                <p className="text-[10px] tracking-wider text-sidebar-muted-super-admin font-sans font-medium uppercase mt-1">
                   Super Admin TKI
                 </p>
               </div>
@@ -69,7 +69,7 @@ export default function Sidebar({ isOpen, onClose }) {
             <button 
               type="button" 
               onClick={onClose}
-              className="text-[#A8988B] hover:text-white lg:hidden p-1 text-sm font-bold cursor-pointer"
+              className="text-sidebar-muted-super-admin hover:text-on-emphasis-super-admin lg:hidden p-1 text-sm font-bold cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -77,13 +77,13 @@ export default function Sidebar({ isOpen, onClose }) {
 
           {/* Group Header: MENU PLATFORM */}
           <div className="px-2 mb-2">
-            <p className="text-[10px] font-bold tracking-widest text-[#8C7A6B] uppercase font-sans">
-              PLATFORM SA
+            <p className="text-[10px] font-bold tracking-widest text-sidebar-muted-super-admin uppercase font-sans">
+              PLATFORM Super Admin TKI
             </p>
           </div>
 
           {/* Navigasi List SA-01 - SA-05 */}
-          <nav className="space-y-1.5">
+          <nav className="space-y-4">
             {menuPlatform.map((item) => {
               const active = isActive(item.path);
               // Inisialisasi komponen Icon dengan huruf kapital
@@ -94,15 +94,15 @@ export default function Sidebar({ isOpen, onClose }) {
                   key={item.path}
                   to={item.path}
                   onClick={() => onClose && onClose()}
-                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 ${
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg   text-sm font-semibold transition-all ${
                     active
-                      ? 'bg-[#4A3B2C] text-white shadow-xs border border-[#6E5A44]'
-                      : 'text-[#C5BBB3] hover:bg-[#382C21] hover:text-white'
+                      ? 'bg-sidebar-border-super-admin text-sidebar-deep-super-admin shadow-xs'
+                      : 'text-sidebar-foreground-super-admin hover:bg-primary-hover-super-admin hover:text-on-emphasis-super-admin'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     {/* Render Icon Komponen Lucide secara terpisah */}
-                    <IconComponent className={`w-4 h-4 shrink-0 ${active ? 'text-[#D4A373]' : 'text-[#A8988B]'}`} />
+                    <IconComponent className={`w-4 h-4 shrink-0 ${active ? 'text-sidebar-deep-super-admin' : 'text-sidebar-muted-super-admin'}`} />
                     <span className="leading-tight">{item.name}</span>
                   </div>
                 </Link>
@@ -112,14 +112,14 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         {/* SISI BAWAH: Profil User & Logout Button */}
-        <div className="pt-3 border-t border-[#3E3024] mt-4 space-y-2">
+        <div className="pt-3 border-t border-sidebar-border-super-admin mt-4 space-y-2">
           <div className="flex items-center gap-3 px-2 py-1.5">
-            <div className="w-8 h-8 rounded-full bg-[#1F1712] border border-[#4A3B2C] flex items-center justify-center text-xs font-bold text-[#E5D2C1] shrink-0">
+            <div className="w-8 h-8 rounded-full bg-sidebar-deep-super-admin border border-sidebar-active-border-super-admin flex items-center justify-center text-xs font-bold text-sidebar-foreground-super-admin shrink-0">
               SA
             </div>
             <div className="text-left leading-tight truncate">
-              <p className="text-xs font-bold text-white truncate">Super Admin TKI</p>
-              <p className="text-[10px] text-[#9A8B7C] truncate">admin@spmbtki.id</p>
+              <p className="text-xs font-bold text-on-emphasis-super-admin truncate">Super Admin TKI</p>
+              <p className="text-[10px] text-sidebar-muted-super-admin truncate">admin@spmbtki.id</p>
             </div>
           </div>
 
@@ -127,7 +127,7 @@ export default function Sidebar({ isOpen, onClose }) {
           <Button
             variant="danger"
             size="sm"
-            className="w-full bg-[#3E2424] hover:bg-[#5C2B2B] text-white border border-[#673333] flex items-center justify-center gap-2"
+            className="w-full bg-error-strong-super-admin hover:bg-error-hover-super-admin text-on-emphasis-super-admin border border-error-strong-super-admin flex items-center justify-center gap-2"
             onClick={() => setIsLogoutModalOpen(true)}
           >
             <LogOut className="w-3.5 h-3.5" />

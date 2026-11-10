@@ -12,21 +12,21 @@ export default function PageHeader({
   children
 }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#EAE2D5] pb-4">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-super-admin pb-4">
       <div>
         {/* Label Kode Modul & Role */}
-        <p className="text-[11px] font-bold text-[#8C7A6B] tracking-wider uppercase mb-1 font-sans">
+        <p className="text-[11px] font-bold text-muted-super-admin tracking-wider uppercase mb-1 font-sans">
           {code} // {role}
         </p>
         
         {/* Judul Utama Halaman */}
-        <h1 className="text-3xl font-serif font-bold text-[#2B2118] tracking-tight">
+        <h1 className="text-3xl font-serif font-bold text-ink-super-admin tracking-tight">
           {title}
         </h1>
         
         {/* Sub-judul / Deskripsi Halaman */}
         {description && (
-          <p className="text-xs text-[#8C7A6B] mt-1 leading-relaxed">
+          <p className="text-xs text-muted-super-admin mt-1 leading-relaxed">
             {description}
           </p>
         )}

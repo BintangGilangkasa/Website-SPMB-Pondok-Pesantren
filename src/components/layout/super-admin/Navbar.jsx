@@ -29,7 +29,7 @@ export default function Navbar({ onToggleSidebar }) {
   };
 
   return (
-    <header className="bg-[#FAF8F5] border-b border-[#ECE5D8] px-4 py-2.5 sm:px-6 h-16 flex items-center justify-between sticky top-0 z-30 shadow-xs">
+    <header className="bg-surface-super-admin border-b border-border-super-admin px-4 py-2.5 sm:px-6 h-16 flex items-center justify-between sticky top-0 z-30 shadow-xs">
       
       {/* Sisi Kiri: Hamburger Button (Mobile) & Title Scope Status */}
       <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ export default function Navbar({ onToggleSidebar }) {
         {/* Button Alert Notifikasi */}
         <button
           type="button"
-          className="relative p-2 text-[#6E5A44] hover:text-[#2B2118] hover:bg-[#F0E6D6] rounded-full transition-colors border border-transparent hover:border-[#E0D7C6]"
+          className="relative p-2 text-muted-super-admin hover:text-ink-super-admin hover:bg-surface-accent-super-admin rounded-full transition-colors border border-transparent hover:border-border-super-admin"
           title="Status Layanan Integrasi"
         >
           <Bell className="w-5 h-5" />
@@ -62,32 +62,32 @@ export default function Navbar({ onToggleSidebar }) {
           <button
             type="button"
             onClick={() => setIsDropdownOpen((prev) => !prev)}
-            className="flex items-center gap-2 cursor-pointer p-1 rounded-lg hover:bg-[#F0E6D6] transition-colors focus:outline-none border border-transparent hover:border-[#E0D7C6]"
+            className="flex items-center gap-2 cursor-pointer p-1 rounded-lg hover:bg-surface-accent-super-admin transition-colors focus:outline-none border border-transparent hover:border-border-super-admin"
           >
-            <div className="w-8 h-8 rounded-full bg-[#2B2118] text-[#E5D2C1] font-serif font-bold text-xs flex items-center justify-center shadow-xs">
+            <div className="w-8 h-8 rounded-full bg-sidebar-super-admin text-sidebar-foreground-super-admin font-serif font-bold text-xs flex items-center justify-center shadow-xs">
               SA
             </div>
 
             <div className="hidden sm:flex flex-col text-left leading-none">
-              <span className="text-xs font-bold text-[#2B2118]">
+              <span className="text-xs font-bold text-ink-super-admin">
                 Super Admin TKI
               </span>
-              <span className="text-[10px] text-[#8C7A6B] mt-0.5">
+              <span className="text-[10px] text-muted-super-admin mt-0.5">
                 platform_owner
               </span>
             </div>
 
-            <span className={`text-[10px] text-[#8C7A6B] transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}>
+            <span className={`text-[10px] text-muted-super-admin transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}>
               ▼
             </span>
           </button>
 
           {/* Menu Dropdown Melayang */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-[#ECE5D8] py-2 z-50">
-              <div className="px-4 py-2 border-b border-[#F5F0E8] mb-1">
-                <p className="text-xs font-serif font-bold text-[#2B2118]">Super Admin TKI</p>
-                <p className="text-[10px] text-[#8C7A6B] truncate">admin@spmbtki.id</p>
+            <div className="absolute right-0 mt-2 w-56 bg-surface-super-admin rounded-xl shadow-lg border border-border-super-admin py-2 z-50">
+              <div className="px-4 py-2 border-b border-border-super-admin mb-1">
+                <p className="text-xs font-serif font-bold text-ink-super-admin">Super Admin TKI</p>
+                <p className="text-[10px] text-muted-super-admin truncate">admin@spmbtki.id</p>
               </div>
 
               <div className="px-1.5 space-y-0.5">
@@ -97,18 +97,18 @@ export default function Navbar({ onToggleSidebar }) {
                     setIsDropdownOpen(false);
                     navigate('/super-admin/platform-settings');
                   }}
-                  className="w-full text-left px-3 py-2 text-xs font-semibold text-[#4A3B2C] hover:bg-[#FAF6F0] rounded-lg transition-colors flex items-center gap-2"
+                  className="w-full text-left px-3 py-2 text-xs font-semibold text-ink-super-admin hover:bg-surface-super-admin rounded-lg transition-colors flex items-center gap-2"
                 >
                   <span>⚙️</span>
                   <span>Pengaturan Platform</span>
                 </button>
 
-                <div className="border-t border-[#F5F0E8] my-1" />
+                <div className="border-t border-border-super-admin my-1" />
 
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="w-full text-left px-3 py-2 text-xs font-semibold text-[#C53939] hover:bg-[#FDEDEC] rounded-lg transition-colors flex items-center gap-2"
+                  className="w-full text-left px-3 py-2 text-xs font-semibold text-error-foreground hover:bg-error-surface rounded-lg transition-colors flex items-center gap-2"
                 >
                   <span>🚪</span>
                   <span>Keluar / Logout</span>

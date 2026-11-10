@@ -22,10 +22,10 @@ const CustomMethodTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const item = payload[0].payload;
     return (
-      <div className="bg-[#2B2118] text-white p-2.5 rounded-xl shadow-lg text-xs border border-[#4A3B2C]">
-        <p className="font-bold text-[#E5DDD5]">{item.method}</p>
-        <p className="text-[#D6CBB8] mt-0.5">
-          Volume Transaksi: <span className="font-bold text-[#8C583C]">{item.formatted}</span>
+      <div className="bg-sidebar-super-admin text-on-emphasis-super-admin p-2.5 rounded-xl shadow-lg text-xs border border-sidebar-active-border-super-admin">
+        <p className="font-bold text-sidebar-foreground-super-admin">{item.method}</p>
+        <p className="text-sidebar-muted-super-admin mt-0.5">
+          Volume Transaksi: <span className="font-bold text-primary-super-admin">{item.formatted}</span>
         </p>
       </div>
     );
@@ -35,12 +35,12 @@ const CustomMethodTooltip = ({ active, payload }) => {
 
 export default function PaymentMethodChart() {
   return (
-    <div className="bg-white rounded-2xl p-6 border border-[#ECE5D8] shadow-xs flex flex-col justify-between h-full space-y-4">
+    <div className="bg-surface-super-admin rounded-2xl p-6 border border-border-super-admin shadow-xs flex flex-col justify-between h-full space-y-4">
       <div>
-        <h3 className="text-base font-serif font-bold text-[#2B2118]">
+        <h3 className="text-base font-serif font-bold text-ink-super-admin">
           Volume per Metode Pembayaran
         </h3>
-        <p className="text-[11px] text-[#8C7A6B] mt-0.5">
+        <p className="text-[11px] text-muted-super-admin mt-0.5">
           Kanal pembayaran yang paling sering digunakan
         </p>
       </div>
@@ -52,12 +52,12 @@ export default function PaymentMethodChart() {
             data={METHOD_DATA}
             margin={{ top: 5, right: 20, left: 25, bottom: 5 }}
           >
-            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#F0EBE1" />
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--color-border-super-admin)" />
             <XAxis
               type="number"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#8C7A6B', fontSize: 10 }}
+              tick={{ fill: 'var(--color-muted-super-admin)', fontSize: 10 }}
               tickFormatter={(val) => `Rp ${(val / 1000000).toFixed(0)}M`}
             />
             <YAxis
@@ -65,10 +65,10 @@ export default function PaymentMethodChart() {
               dataKey="method"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#4A3B2C', fontSize: 11, fontWeight: 600 }}
+              tick={{ fill: 'var(--color-ink-super-admin)', fontSize: 11, fontWeight: 600 }}
             />
-            <Tooltip content={<CustomMethodTooltip />} cursor={{ fill: '#FAF6F0' }} />
-            <Bar dataKey="nominal" fill="#8C583C" radius={[0, 6, 6, 0]} barSize={18} />
+            <Tooltip content={<CustomMethodTooltip />} cursor={{ fill: 'var(--color-surface-accent-super-admin)' }} />
+            <Bar dataKey="nominal" fill="var(--color-primary-super-admin)" radius={[0, 6, 6, 0]} barSize={18} />
           </BarChart>
         </ResponsiveContainer>
       </div>

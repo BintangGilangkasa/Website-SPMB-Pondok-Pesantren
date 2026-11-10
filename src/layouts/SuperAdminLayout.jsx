@@ -9,7 +9,7 @@ export default function SuperAdminLayout() {
 
   return (
     // Pembungkus Utama: Memenuhi seluruh tinggi layar (h-screen) & cegah scroll luar
-    <div className="flex h-screen overflow-hidden bg-[#FAF8F5]">
+    <div className="flex h-screen overflow-hidden bg-surface-super-admin">
       
       {/* 1. Sidebar Kiri (Berdiri utuh dari atas ke bawah) */}
       <Sidebar 

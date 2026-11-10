@@ -5,11 +5,11 @@ import Button from '../../../../components/ui/Button';
 
 export default function TenantTable({ tenantList, onOpenDetail }) {
   return (
-    <div className="bg-white rounded-2xl border border-[#ECE5D8] shadow-xs overflow-hidden">
+    <div className="bg-surface-super-admin rounded-2xl border border-border-super-admin shadow-xs overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs whitespace-nowrap font-sans">
           <thead>
-            <tr className="bg-[#FAF8F5] border-b border-[#ECE5D8] text-[#8C7A6B] uppercase text-[10px] font-bold tracking-wider">
+            <tr className="bg-surface-super-admin border-b border-border-super-admin text-muted-super-admin uppercase text-[10px] font-bold tracking-wider">
               <th className="py-3.5 px-5">Nama pesantren</th>
               <th className="py-3.5 px-5">Alamat portal</th>
               <th className="py-3.5 px-5">Status</th>
@@ -17,19 +17,19 @@ export default function TenantTable({ tenantList, onOpenDetail }) {
               <th className="py-3.5 px-5 text-center">Aksi</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#F5F0E8]">
+          <tbody className="divide-y divide-border-super-admin">
             {tenantList.length > 0 ? (
               tenantList.map((item) => (
-                <tr key={item.id} className="hover:bg-[#FAF8F5]/80 transition-colors">
+                <tr key={item.id} className="hover:bg-surface-super-admin/80 transition-colors">
                   
                   {/* Nama Pesantren & Code */}
                   <td className="py-3.5 px-5">
-                    <p className="font-bold text-[#2B2118] text-xs font-serif">{item.name}</p>
-                    <p className="text-[10px] font-mono text-[#8C7A6B]">{item.code}</p>
+                    <p className="font-bold text-ink-super-admin text-xs font-serif">{item.name}</p>
+                    <p className="text-[10px] font-mono text-muted-super-admin">{item.code}</p>
                   </td>
 
                   {/* Slug / Alamat Portal */}
-                  <td className="py-3.5 px-5 font-mono text-[#8C583C]">
+                  <td className="py-3.5 px-5 font-mono text-primary-super-admin">
                     /{item.slug}
                   </td>
 
@@ -43,7 +43,7 @@ export default function TenantTable({ tenantList, onOpenDetail }) {
                   </td>
 
                   {/* Timezone */}
-                  <td className="py-3.5 px-5 text-[#6E5A44]">
+                  <td className="py-3.5 px-5 text-muted-super-admin">
                     {item.default_timezone}
                   </td>
 
@@ -53,7 +53,7 @@ export default function TenantTable({ tenantList, onOpenDetail }) {
                       variant="outline"
                       size="sm"
                       onClick={() => onOpenDetail(item)}
-                      className="px-4 py-1 text-[11px] bg-white border-[#D6CBB8]"
+                      className="px-4 py-1 text-[11px] bg-surface-super-admin border-border-super-admin"
                     >
                       Detail
                     </Button>
@@ -63,7 +63,7 @@ export default function TenantTable({ tenantList, onOpenDetail }) {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="py-10 text-center text-[#8C7A6B] text-xs">
+                <td colSpan="5" className="py-10 text-center text-muted-super-admin text-xs">
                   Tidak ada data pesantren yang sesuai dengan kriteria pencarian/filter.
                 </td>
               </tr>

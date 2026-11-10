@@ -5,7 +5,7 @@ import PageHeader from "../../../components/ui/PageHeader";
 import MetricCard from "../01-dashboard/components/MetricCard";
 import TenantTable from "./components/TenantTable";
 import TenantDetailDrawer from "./components/TenantDetailDrawer";
-import { Plus } from "lucide-react";
+import { Plus, ArrowRight } from "lucide-react";
 
 // Import data dummy dari file terpisah
 import { initialTenants } from "../../../data/TenantData";
@@ -83,8 +83,8 @@ export default function TenantManagement() {
 
   if (isLoading) {
     return (
-      <div className="p-8 text-center text-xs text-[#8C7A6B] font-medium">
-        <div className="inline-block animate-spin rounded-full h-6 w-6 border-2 border-[#8B5E34] border-t-transparent mb-2"></div>
+      <div className="p-8 text-center text-xs text-muted-super-admin font-medium">
+        <div className="inline-block animate-spin rounded-full h-6 w-6 border-2 border-primary-super-admin border-t-transparent mb-2"></div>
         <p>Memuat data institusi & tenant SA-02...</p>
       </div>
     );
@@ -92,14 +92,14 @@ export default function TenantManagement() {
 
   if (isError) {
     return (
-      <div className="p-6 bg-[#FDEDEC] border border-[#F5C6CB] text-[#721C24] rounded-xl text-xs">
+      <div className="p-6 bg-error-surface border border-error-border text-error-foreground rounded-xl text-xs">
         <strong>Gagal Memuat Data:</strong> Data institusi/tenant gagal dimuat. Silakan periksa koneksi atau integrasi backend Anda.
       </div>
     );
   }
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6 font-sans text-[#2B2118] pb-12">
+    <div className="max-w-7xl mx-auto space-y-6 font-sans text-ink-super-admin pb-12">
       
       {/* 1. Header & Tombol Aksi Kanan (SA-02) */}
       <PageHeader
@@ -108,7 +108,7 @@ export default function TenantManagement() {
         title="Institusi / Tenant"
         description="Kelola institusi pelanggan TKI pada lingkup platform. Nama pesantren yang resmi berasal dari halaman ini."
         actionText={
-          <span className="flex items-center gap-1.5">
+          <span className="flex  items-center gap-1.5">
             <Plus className="w-3.5 h-3.5" />
             <span>Tambah Tenant</span>
           </span>
@@ -124,33 +124,37 @@ export default function TenantManagement() {
           title="TOTAL TENANT"
           value={metrics.total}
           desc="Seluruh organisasi terdaftar"
-          actionText="Lihat Tenant →"
+          actionText="Lihat Tenant"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
         <MetricCard
           title="AKTIF"
           value={metrics.aktif}
           desc="Tenant berstatus aktif"
-          actionText="Lihat Tenant →"
+          actionText="Lihat Tenant"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
         <MetricCard
           title="BELUM AKTIF"
           value={metrics.belumAktif}
           desc="Memerlukan aktivasi"
-          actionText="Lihat Tenant →"
+          actionText="Lihat Tenant"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
         <MetricCard
           title="DITANGGUHKAN"
           value={metrics.ditangguhkan}
           desc="Histori tetap disimpan"
-          actionText="Lihat Tenant →"
+          actionText="Lihat Tenant"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
       </div>
 
       {/* 3. Section Daftar Institusi (Filter Bar Global & Tabel Data) */}
       <div className="space-y-4 pt-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-base font-serif font-bold text-[#2B2118]">Daftar institusi</h2>
-          <span className="text-xs text-[#8C7A6B]">
+          <h2 className="text-base font-serif font-bold text-ink-super-admin">Daftar institusi</h2>
+          <span className="text-xs text-muted-super-admin">
             {filteredTenants.length} dari {tenants.length} tenant
           </span>
         </div>
@@ -169,11 +173,11 @@ export default function TenantManagement() {
 
           {/* Select Status Tenant (5 Kolom Grid) */}
           <div className="sm:col-span-5 space-y-1">
-            <label className="text-xs font-bold text-[#6E5A44]">Status</label>
+            <label className="text-xs font-bold text-muted-super-admin">Status</label>
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FAF8F5] border border-[#DCD3C5] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#8B5E34] text-[#2B2118] font-semibold cursor-pointer"
+              className="w-full px-3.5 py-2 text-xs bg-surface-super-admin border border-border-super-admin rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-super-admin text-ink-super-admin font-semibold cursor-pointer"
             >
               <option value="Semua">Semua status</option>
               <option value="AKTIF">Aktif</option>

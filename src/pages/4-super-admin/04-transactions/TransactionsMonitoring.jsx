@@ -64,7 +64,7 @@ export default function TransactionsMonitoring() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6 font-sans text-[#2B2118] pb-12">
+    <div className="max-w-7xl mx-auto space-y-6 font-sans text-ink-super-admin pb-12">
       
       {/* 1. Page Header SA-04 */}
       <PageHeader
@@ -74,7 +74,7 @@ export default function TransactionsMonitoring() {
         description="Ringkasan status invoice dan kesehatan konfirmasi pembayaran di seluruh platform, sesuai izin baca-saja."
       >
         <div className="self-start sm:self-auto shrink-0">
-          <Badge variant="TERTANGGUHKAN" className="bg-[#FAF8F5] text-[#6E5A44] border-[#D6CBB8] px-3 py-1 text-xs flex items-center gap-1.5">
+          <Badge variant="TERTANGGUHKAN" className="bg-surface-super-admin text-muted-super-admin border-border-super-admin px-3 py-1 text-xs flex items-center gap-1.5">
             <Lock className="w-3.5 h-3.5" />
             <span>BACA-SAJA</span>
           </Badge>
@@ -114,22 +114,22 @@ export default function TransactionsMonitoring() {
       </div>
 
       {/* 4. Selector Rentang Tampilan & FilterBar (Harian/Mingguan/Bulanan & Filter Sekolah) */}
-      <div className="bg-white p-4 rounded-2xl border border-[#ECE5D8] shadow-xs space-y-4">
+      <div className="bg-surface-super-admin p-4 rounded-2xl border border-border-super-admin shadow-xs space-y-4">
         
         {/* Toggle Rentang Waktu (7 Hari, 30 Hari, Mingguan, Bulanan) */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#F5F0E8] pb-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-border-super-admin pb-3">
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-[#8C7A6B]" />
-            <span className="text-xs font-bold text-[#6E5A44]">Rentang tampilan:</span>
+            <Calendar className="w-4 h-4 text-muted-super-admin" />
+            <span className="text-xs font-bold text-muted-super-admin">Rentang tampilan:</span>
             
-            <div className="flex items-center gap-1.5 bg-[#FAF8F5] p-1 rounded-xl border border-[#DCD3C5]">
+            <div className="flex items-center gap-1.5 bg-surface-super-admin p-1 rounded-xl border border-border-super-admin">
               <button
                 type="button"
                 onClick={() => setTimeFilterType('7-hari')}
                 className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   timeFilterType === '7-hari'
-                    ? 'bg-[#8C583C] text-white shadow-xs'
-                    : 'text-[#6E5A44] hover:bg-[#F2ECE1]'
+                    ? 'bg-primary-super-admin text-on-emphasis-super-admin shadow-xs'
+                    : 'text-muted-super-admin hover:bg-surface-accent-super-admin'
                 }`}
               >
                 7 Hari
@@ -139,8 +139,8 @@ export default function TransactionsMonitoring() {
                 onClick={() => setTimeFilterType('30-hari')}
                 className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   timeFilterType === '30-hari'
-                    ? 'bg-[#8C583C] text-white shadow-xs'
-                    : 'text-[#6E5A44] hover:bg-[#F2ECE1]'
+                    ? 'bg-primary-super-admin text-on-emphasis-super-admin shadow-xs'
+                    : 'text-muted-super-admin hover:bg-surface-accent-super-admin'
                 }`}
               >
                 30 Hari
@@ -150,8 +150,8 @@ export default function TransactionsMonitoring() {
                 onClick={() => setTimeFilterType('mingguan')}
                 className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   timeFilterType === 'mingguan'
-                    ? 'bg-[#8C583C] text-white shadow-xs'
-                    : 'text-[#6E5A44] hover:bg-[#F2ECE1]'
+                    ? 'bg-primary-super-admin text-on-emphasis-super-admin shadow-xs'
+                    : 'text-muted-super-admin hover:bg-surface-accent-super-admin'
                 }`}
               >
                 Mingguan
@@ -161,8 +161,8 @@ export default function TransactionsMonitoring() {
                 onClick={() => setTimeFilterType('bulanan')}
                 className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   timeFilterType === 'bulanan'
-                    ? 'bg-[#8C583C] text-white shadow-xs'
-                    : 'text-[#6E5A44] hover:bg-[#F2ECE1]'
+                    ? 'bg-primary-super-admin text-on-emphasis-super-admin shadow-xs'
+                    : 'text-muted-super-admin hover:bg-surface-accent-super-admin'
                 }`}
               >
                 Bulanan
@@ -170,7 +170,7 @@ export default function TransactionsMonitoring() {
             </div>
           </div>
 
-          <span className="text-[11px] text-[#9A8B7C]">
+          <span className="text-[11px] text-muted-super-admin">
             Data ilustratif · {timeFilterType} · seluruh tenant
           </span>
         </div>
@@ -187,14 +187,14 @@ export default function TransactionsMonitoring() {
           </div>
 
           <div className="sm:col-span-4 space-y-1">
-            <label className="text-xs font-bold text-[#6E5A44] flex items-center gap-1">
+            <label className="text-xs font-bold text-muted-super-admin flex items-center gap-1">
               <Building2 className="w-3.5 h-3.5" />
               <span>Filter Sekolah / Tenant</span>
             </label>
             <select
               value={selectedTenant}
               onChange={(e) => setSelectedTenant(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FAF8F5] border border-[#DCD3C5] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#8B5E34] text-[#2B2118] font-semibold cursor-pointer"
+              className="w-full px-3.5 py-2 text-xs bg-surface-super-admin border border-border-super-admin rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-super-admin text-ink-super-admin font-semibold cursor-pointer"
             >
               {data.tenants.map((t) => (
                 <option key={t.id} value={t.name}>
@@ -209,7 +209,7 @@ export default function TransactionsMonitoring() {
               variant="secondary"
               size="md"
               onClick={handleApplyFilter}
-              className="flex-1 bg-[#FAF8F5] hover:bg-[#F2ECE1] text-[#3A2E2B] border border-[#D6CBB8]"
+              className="flex-1 bg-surface-super-admin hover:bg-surface-accent-super-admin text-ink-super-admin border border-border-super-admin"
             >
               Cari
             </Button>
@@ -217,7 +217,7 @@ export default function TransactionsMonitoring() {
               variant="ghost"
               size="md"
               onClick={handleResetFilter}
-              className="px-3 text-[#8C7A6B]"
+              className="px-3 text-muted-super-admin"
             >
               Reset
             </Button>
@@ -258,7 +258,7 @@ export default function TransactionsMonitoring() {
         <Button
           variant="primary"
           size="md"
-          className="bg-button hover:bg-[#734730] text-white px-5 py-2.5 rounded-xl shadow-xs w-full sm:w-auto"
+          className="bg-button hover:bg-primary-hover-super-admin text-on-emphasis-super-admin px-5 py-2.5 rounded-xl shadow-xs w-full sm:w-auto"
           onClick={() => setIsDrawerOpen(true)}
         >
           Buka Daftar Transaksi
@@ -267,7 +267,7 @@ export default function TransactionsMonitoring() {
         <Button
           variant="secondary"
           size="md"
-          className="bg-[#FAF8F5] hover:bg-[#F2ECE1] text-[#3A2E2B] border border-[#D6CBB8] px-5 py-2.5 rounded-xl w-full sm:w-auto"
+          className="bg-surface-super-admin hover:bg-surface-accent-super-admin text-ink-super-admin border border-border-super-admin px-5 py-2.5 rounded-xl w-full sm:w-auto"
           onClick={() => alert('Membuka rincian kendala integrasi pembayaran global.')}
         >
           Lihat Kendala Integrasi
@@ -275,7 +275,7 @@ export default function TransactionsMonitoring() {
       </div>
 
       {/* Footer Disclaimer PRD SA-04 */}
-      <div className="flex flex-col sm:flex-row items-center justify-between text-[10px] text-[#A39485] pt-4 border-t border-[#EAE2D5] gap-2">
+      <div className="flex flex-col sm:flex-row items-center justify-between text-[10px] text-muted-super-admin pt-4 border-t border-border-super-admin gap-2">
         <span>SPMB · PRD v1.3 - SIMULASI</span>
         <span>Pantauan platform, bukan otorisasi pengubahan pembayaran.</span>
       </div>

@@ -9,11 +9,27 @@
     --color-success: #10B981;
     --color-warning: #F59E0B;
     --color-error: #EF4444;
+    --color-disabled-super-admin: #6B7280;
 
     --color-primary-super-admin: #2563EB;
     --color-secondary-super-admin: #7DD3FC;
     --color-border-super-admin: #E5E7EB;
+    --color-border-subtle-super-admin: rgb(0 0 0 / 5%);
     --color-background-super-admin: #F9FAFB;
+    --color-ink-super-admin: #1F2937;
+    --color-muted-super-admin: #4B5563;
+    --color-on-emphasis-super-admin: #FFFFFF;
+    --color-sidebar-deep-super-admin: #172554;
+    --color-sidebar-border-super-admin: #A3B7C7;
+    --color-sidebar-active-border-super-admin: #93C5FD;
+    --color-sidebar-foreground-super-admin: #DBEAFE;
+    --color-sidebar-muted-super-admin: #BFDBFE;
+    --color-sidebar-error-super-admin: #FCA5A5;
+    --color-primary-hover-super-admin: #1D4ED8;
+    --color-surface-super-admin: #FFFFFF;
+    --color-surface-muted-super-admin: #F9FAFB;
+    --color-surface-accent-super-admin: #EFF6FF;
+    --color-overlay-super-admin: #000000;
 
     --color-primary-admin-institusi: #2563EB;
     --color-secondary-admin-institusi: #7DD3FC;
@@ -21,21 +37,17 @@
     --color-primary-portal-santri: #2563EB;
     --color-secondary-portal-santri: #7DD3FC;
 
-    --color-ink-super-admin: #1F2937;
-    --color-muted-super-admin: #4B5563;
-    --color-sidebar-super-admin: #1E3A8A;
-    --color-sidebar-deep-super-admin: #172554;
-    --color-sidebar-border-super-admin: #1E40AF;
-    --color-primary-hover-super-admin: #1D4ED8;
-    --color-surface-super-admin: #FFFFFF;
-    --color-surface-muted-super-admin: #F9FAFB;
-    --color-surface-accent-super-admin: #EFF6FF;
     --color-success-foreground: #047857;
     --color-success-surface: #ECFDF5;
+    --color-success-border: #A7F3D0;
     --color-warning-foreground: #B45309;
     --color-warning-surface: #FFFBEB;
+    --color-warning-border: #FCD34D;
     --color-error-foreground: #B91C1C;
     --color-error-surface: #FEF2F2;
+    --color-error-border: #FECACA;
+    --color-error-hover-super-admin: #7F1D1D;
+    --color-error-strong-super-admin: #991B1B;
     --color-info-foreground: #1D4ED8;
     --color-info-surface: #EFF6FF;
     --color-info-border: #BFDBFE;
@@ -45,44 +57,6 @@
     /* Keep the project font names available to existing styles. */
     --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-family-serif: 'Merriweather', Georgia, serif;
-
-    /* Status Colors */
-    --color-success: #10B981;
-    --color-warning: #F59E0B;
-    --color-error: #EF4444;
-
-    /* Color Dashboard Super Admin */
-    --color-primary-super-admin: #2563EB;
-    --color-secondary-super-admin: #7DD3FC;
-    --color-border-super-admin: #E5E7EB;
-    --color-background-super-admin: #F9FAFB;
-
-    /* Color Dashboard Admin Institusi */
-    --color-primary-admin-institusi: #2563EB;
-    --color-secondary-admin-institusi: #7DD3FC;
-
-    /* Color Dashboard Portal Santri */
-    --color-primary-portal-santri: #2563EB;
-    --color-secondary-portal-santri: #7DD3FC;
-
-    --color-ink-super-admin: #1F2937;
-    --color-muted-super-admin: #4B5563;
-    --color-sidebar-super-admin: #1E3A8A;
-    --color-sidebar-deep-super-admin: #172554;
-    --color-sidebar-border-super-admin: #1E40AF;
-    --color-primary-hover-super-admin: #1D4ED8;
-    --color-surface-super-admin: #FFFFFF;
-    --color-surface-muted-super-admin: #F9FAFB;
-    --color-surface-accent-super-admin: #EFF6FF;
-    --color-success-foreground: #047857;
-    --color-success-surface: #ECFDF5;
-    --color-warning-foreground: #B45309;
-    --color-warning-surface: #FFFBEB;
-    --color-error-foreground: #B91C1C;
-    --color-error-surface: #FEF2F2;
-    --color-info-foreground: #1D4ED8;
-    --color-info-surface: #EFF6FF;
-    --color-info-border: #BFDBFE;
 }
 
 html {
@@ -99,227 +73,4 @@ input,
 select,
 textarea {
     font-family: inherit;
-}
-
-/* Existing Tailwind color classes mapped to the shared dashboard palette. */
-:is([class~="text-[#2B2118]"], [class~="text-[#3A2E2B]"], [class~="text-[#4A3B2C]"], [class~="text-gray-800"], [class~="text-black"]) {
-    color: var(--color-ink-super-admin) !important;
-}
-
-:is([class~="text-[#6E5A44]"], [class~="text-[#8C7A6B]"], [class~="text-[#9A8B7C]"], [class~="text-[#A39485]"], [class~="text-[#A8927C]"], [class~="text-[#8C6B2D]"], [class~="text-gray-500"]) {
-    color: var(--color-muted-super-admin) !important;
-}
-
-:is([class~="text-[#2D5A3C]"]) {
-    color: var(--color-success-foreground) !important;
-}
-
-:is([class~="text-[#2C5282]"]) {
-    color: var(--color-info-foreground) !important;
-}
-
-:is([class~="text-[#D97706]"], [class~="text-[#8B4513]"]) {
-    color: var(--color-warning-foreground) !important;
-}
-
-:is([class~="text-[#C53939]"], [class~="text-[#721C24]"], [class~="text-red-500"]) {
-    color: var(--color-error-foreground) !important;
-}
-
-:is([class~="text-[#8C583C]"]) {
-    color: var(--color-primary-super-admin) !important;
-}
-
-:is([class~="text-[#D4A373]"]) {
-    color: var(--color-secondary-super-admin) !important;
-}
-
-:is([class~="hover:text-[#2B2118]"]):hover {
-    color: var(--color-ink-super-admin) !important;
-}
-
-:is([class~="text-[#E5D2C1]"], [class~="text-[#C5BBB3]"], [class~="text-[#A8988B]"]) {
-    color: #DBEAFE !important;
-}
-
-:is([class~="text-[#E57373]"]) {
-    color: #FCA5A5 !important;
-}
-
-:is([class~="text-[#8C7A6B]"], [class~="text-[#9A8B7C]"], [class~="text-[#A8988B]"]):is(.fixed.left-0 *) {
-    color: #BFDBFE !important;
-}
-
-:is([class~="bg-[#FAF8F5]"], [class~="bg-[#FAF6F0]"], [class~="bg-[#F8F3EC]"], [class~="bg-[#FAF4E8]"], [class~="bg-[#FAF7F2]"], [class~="bg-white"], [class~="bg-slate-50"]) {
-    background-color: var(--color-surface-super-admin) !important;
-}
-
-:is([class~="bg-[#F2ECE1]"], [class~="bg-[#F0E6D6]"], [class~="bg-[#EFEAE1]"], [class~="bg-slate-200"]) {
-    background-color: var(--color-surface-accent-super-admin) !important;
-}
-
-:is([class~="bg-[#2B2118]"]) {
-    background-color: var(--color-sidebar-super-admin) !important;
-}
-
-:is([class~="bg-[#1F1712]"]) {
-    background-color: var(--color-sidebar-deep-super-admin) !important;
-}
-
-:is([class~="bg-[#4A3B2C]"]) {
-    background-color: var(--color-primary-super-admin) !important;
-}
-
-:is([class~="bg-[#382C21]"]) {
-    background-color: var(--color-primary-hover-super-admin) !important;
-}
-
-:is([class~="bg-[#2D5A3C]"]) {
-    background-color: var(--color-success) !important;
-}
-
-:is([class~="bg-[#D97706]"]) {
-    background-color: var(--color-warning) !important;
-}
-
-:is([class~="bg-[#8B5E34]"]) {
-    background-color: var(--color-primary-super-admin) !important;
-}
-
-:is([class~="bg-[#3E2424]"]) {
-    background-color: #7F1D1D !important;
-}
-
-:is([class~="disabled:bg-[#A8988B]"]):disabled {
-    background-color: #6B7280 !important;
-}
-
-:is([class~="bg-[#5C2B2B]"], [class~="bg-[#A82B2B]"]) {
-    background-color: #991B1B !important;
-}
-
-:is([class~="bg-[#D4A373]"]) {
-    background-color: var(--color-secondary-super-admin) !important;
-}
-
-:is([class~="bg-[#C53939]"]) {
-    background-color: var(--color-error-foreground) !important;
-}
-
-:is([class~="bg-[#E2F0E6]"]) {
-    background-color: var(--color-success-surface) !important;
-}
-
-:is([class~="bg-[#FDF0E6]"], [class~="bg-[#FEF3C7]"], [class~="bg-[#EFE2C8]"]) {
-    background-color: var(--color-warning-surface) !important;
-}
-
-:is([class~="bg-[#FDEDEC]"]) {
-    background-color: var(--color-error-surface) !important;
-}
-
-:is([class~="bg-[#EBF3FA]"]) {
-    background-color: var(--color-info-surface) !important;
-}
-
-:is([class~="bg-[#F5F0E6]"], [class~="bg-[#F5F0E8]"], [class~="bg-[#EAE2D5]"], [class~="bg-[#ECE5D8]"], [class~="bg-[#E8DFC8]"], [class~="bg-[#EADFCF]"], [class~="bg-[#E0D7C6]"], [class~="bg-[#E2D8C7]"], [class~="bg-[#EFEAE1]"]) {
-    background-color: var(--color-surface-muted-super-admin) !important;
-}
-
-:is([class~="hover:bg-[#F2ECE1]"], [class~="hover:bg-[#F0E6D6]"], [class~="hover:bg-[#FAF6F0]"], [class~="hover:bg-[#FAF8F5]"], [class~="hover:bg-[#FAF8F5]/80"]):hover {
-    background-color: var(--color-surface-accent-super-admin) !important;
-}
-
-:is([class~="hover:bg-[#382C21]"]):hover {
-    background-color: var(--color-primary-hover-super-admin) !important;
-}
-
-:is([class~="hover:bg-[#5C2B2B]"]):hover {
-    background-color: #7F1D1D !important;
-}
-
-:is([class~="hover:bg-[#A82B2B]"]):hover {
-    background-color: #991B1B !important;
-}
-
-:is([class~="hover:bg-[#FDEDEC]"]):hover {
-    background-color: var(--color-error-surface) !important;
-}
-
-:is([class~="bg-[#F5F0E6]"]) {
-    background-color: var(--color-surface-muted-super-admin) !important;
-}
-
-:is([class~="border-[#ECE5D8]"], [class~="border-[#F5F0E8]"], [class~="border-[#F5F0E6]"], [class~="border-[#EAE2D5]"], [class~="border-[#E8DFC8]"], [class~="border-[#EADFCF]"], [class~="border-[#E0D7C6]"], [class~="border-[#E2D8C7]"], [class~="border-[#DCD3C5]"], [class~="border-[#D6CBB8]"], [class~="border-[#D0C4B0]"], [class~="border-gray-100"], [class~="border-slate-100"]) {
-    border-color: var(--color-border-super-admin) !important;
-}
-
-:is([class~="border-[#3D3024]"], [class~="border-[#3E3024]"]) {
-    border-color: var(--color-sidebar-border-super-admin) !important;
-}
-
-:is([class~="border-[#4A3B2C]"], [class~="border-[#6E5A44]"]) {
-    border-color: #93C5FD !important;
-}
-
-:is([class~="border-[#8B5E34]"]) {
-    border-color: var(--color-primary-super-admin) !important;
-}
-
-:is([class~="border-[#B8DEC3]"], [class~="border-[#E2F0E6]"]) {
-    border-color: #A7F3D0 !important;
-}
-
-:is([class~="border-[#FCD34D]"], [class~="border-[#F5D4BD]"], [class~="border-[#EFE2C8]"]) {
-    border-color: #FCD34D !important;
-}
-
-:is([class~="border-[#F5C6CB]"]) {
-    border-color: #FECACA !important;
-}
-
-:is([class~="border-[#D0E2F2]"]) {
-    border-color: var(--color-info-border) !important;
-}
-
-:is([class~="border-[#673333]"]) {
-    border-color: #991B1B !important;
-}
-
-:is([class~="hover:border-[#E0D7C6]"], [class~="hover:border-[#D6CBB8]"], [class~="hover:border-[#D0C4B0]"]):hover {
-    border-color: var(--color-border-super-admin) !important;
-}
-
-:is([class~="focus:ring-[#8B5E34]"]):focus {
-    --tw-ring-color: var(--color-primary-super-admin) !important;
-}
-
-:is([class~="ring-red-300"]) {
-    --tw-ring-color: var(--color-error) !important;
-}
-
-:is([class~="placeholder-[#9A8B7C]"])::placeholder {
-    color: var(--color-muted-super-admin) !important;
-}
-
-:is([class~="divide-[#F5F0E8]"]) > :not(:last-child) {
-    border-color: var(--color-border-super-admin) !important;
-}
-
-svg [fill="#3b82f6"],
-svg [fill="#0284C7"] {
-    fill: var(--color-primary-super-admin) !important;
-}
-
-svg [fill="#0EA5E9"],
-svg [fill="#38BDF8"] {
-    fill: var(--color-secondary-super-admin) !important;
-}
-
-svg [stroke="#f0f0f0"] {
-    stroke: var(--color-border-super-admin) !important;
-}
-
-svg [stroke="#9ca3af"] {
-    stroke: #6B7280 !important;
 }

@@ -11,7 +11,7 @@ export default function FilterBar({
   className = ""
 }) {
   return (
-    <div className={`bg-white p-4 rounded-2xl border border-[#ECE5D8] shadow-xs space-y-3 ${className}`}>
+    <div className={`bg-surface-super-admin p-4 rounded-2xl border border-border-super-admin shadow-xs space-y-3 ${className}`}>
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-end">
         
         {/* Slot Dinamis untuk Input Search & Filter Select */}
@@ -25,7 +25,7 @@ export default function FilterBar({
             variant="secondary"
             size="md"
             onClick={onApply}
-            className="flex-1 bg-[#FAF8F5] hover:bg-[#F2ECE1] text-[#3A2E2B] border border-[#D6CBB8]"
+            className="flex-1 bg-surface-super-admin hover:bg-surface-accent-super-admin text-on-emphasis-super-admin border border-border-super-admin"
           >
             {applyText}
           </Button>
@@ -33,7 +33,7 @@ export default function FilterBar({
             variant="ghost"
             size="md"
             onClick={onReset}
-            className="px-3 text-[#8C7A6B]"
+            className="px-3 text-muted-super-admin"
           >
             {resetText}
           </Button>
