@@ -164,8 +164,8 @@ export default function TenantManagement() {
           {/* Input Search Nama / Slug (7 Kolom Grid) */}
           <div className="sm:col-span-7">
             <SearchInput
-              label="Cari nama / slug"
-              placeholder="Cari pesantren atau slug..."
+              label="Cari Nama Institusi"
+              placeholder="Cari Pesantren"
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)}
             />

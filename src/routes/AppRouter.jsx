@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // Layouts
 import SuperAdminLayout from "../layouts/SuperAdminLayout";
 
+// Page Landing Page
+import LandingPage from "../pages/1-public/LandingPage";
+
 // Pages Super Admin
 import DashboardPlatform from "../pages/4-super-admin/01-dashboard/DashboardPlatform";
 import TenantManagement from "../pages/4-super-admin/02-tenant/TenantManagement";
@@ -15,6 +18,11 @@ import PlatformSettings from "../pages/4-super-admin/05-platform-settings/Platfo
 export default function AppRoutes() {
   return (
       <Routes>
+        <Route path="/" element={<Navigate to="/landing-page" replace />} />
+
+        {/* 1. LANDING PAGE */}
+        <Route path="/landing-page" element={<LandingPage />} />
+
         {/* 3. SUPER ADMIN TKI */}
         <Route path="/super-admin" element={<SuperAdminLayout />}>
           <Route index element={<Navigate to="/super-admin/dashboard" replace />} />

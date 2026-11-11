@@ -8,7 +8,7 @@ import InviteAdminModal from './components/InviteAdminModal';
 import UserDetailDrawer from './components/UserDetailDrawer';
 
 import { initialUsersData } from '../../../data/usersData';
-import { UserPlus, Users, ShieldCheck, KeyRound, UserCheck } from 'lucide-react';
+import { UserPlus, Users, ShieldCheck, KeyRound, UserCheck, ArrowRight } from 'lucide-react';
 
 export default function UsersAndAccess() {
   // State Data Pengguna & Tab Navigasi SA-03
@@ -139,25 +139,29 @@ export default function UsersAndAccess() {
           title="AKUN SIMULASI"
           value={initialUsersData.metrics.simulasi.value}
           desc={initialUsersData.metrics.simulasi.desc}
-          actionText="Lihat Akun →"
+          actionText="Lihat Akun"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
         <MetricCard
           title="AKUN AKTIF"
           value={initialUsersData.metrics.aktif.value}
           desc={initialUsersData.metrics.aktif.desc}
-          actionText="Status Layanan →"
+          actionText="Status Layanan"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
         <MetricCard
           title="ADMIN AWAL TENANT"
           value={initialUsersData.metrics.adminAwal.value}
           desc={initialUsersData.metrics.adminAwal.desc}
-          actionText="Keanggotaan →"
+          actionText="Keanggotaan"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
         <MetricCard
           title="ROLE PLATFORM"
           value={initialUsersData.metrics.rolePlatform.value}
           desc={initialUsersData.metrics.rolePlatform.desc}
-          actionText="Penugasan →"
+          actionText="Penugasan"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
         />
       </div>
 

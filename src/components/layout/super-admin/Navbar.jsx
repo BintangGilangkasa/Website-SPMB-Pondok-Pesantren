@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Badge from '../../ui/Badge';
 import Button from '../../ui/Button';
-import { Menu, Bell } from 'lucide-react';
+import { Menu, Bell, Settings, LogOut } from 'lucide-react';
 
 export default function Navbar({ onToggleSidebar }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -99,7 +99,7 @@ export default function Navbar({ onToggleSidebar }) {
                   }}
                   className="w-full text-left px-3 py-2 text-xs font-semibold text-ink-super-admin hover:bg-surface-super-admin rounded-lg transition-colors flex items-center gap-2"
                 >
-                  <span>⚙️</span>
+                  <Settings className="w-3.5 h-3.5" />
                   <span>Pengaturan Platform</span>
                 </button>
 
@@ -110,7 +110,7 @@ export default function Navbar({ onToggleSidebar }) {
                   onClick={handleLogout}
                   className="w-full text-left px-3 py-2 text-xs font-semibold text-error-foreground hover:bg-error-surface rounded-lg transition-colors flex items-center gap-2"
                 >
-                  <span>🚪</span>
+                  <LogOut className="w-3.5 h-3.5" />
                   <span>Keluar / Logout</span>
                 </button>
               </div>

@@ -12,7 +12,7 @@ import PaymentStatusPieChart from './components/PaymentStatusPieChart';
 import PaymentMethodChart from './components/PaymentMethodChart';
 
 import { initialTransactionsData } from '../../../data/transactionsData';
-import { Lock, Calendar, Building2 } from 'lucide-react';
+import { Lock, Calendar, Building2, ArrowRight } from 'lucide-react';
 
 export default function TransactionsMonitoring() {
   // State Data & Filter SA-04
@@ -87,28 +87,32 @@ export default function TransactionsMonitoring() {
           title="TOTAL INVOICE"
           value={data.metrics.totalInvoice.value}
           desc={data.metrics.totalInvoice.desc}
-          actionText="Lihat data →"
+          actionText="Lihat data"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
           onClick={() => setIsDrawerOpen(true)}
         />
         <MetricCard
           title="INVOICE LUNAS"
           value={data.metrics.invoiceLunas.value}
           desc={data.metrics.invoiceLunas.desc}
-          actionText="Lihat data →"
+          actionText="Lihat data"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
           onClick={() => setIsDrawerOpen(true)}
         />
         <MetricCard
           title="MENUNGGU KONFIRMASI"
           value={data.metrics.menungguKonfirmasi.value}
           desc={data.metrics.menungguKonfirmasi.desc}
-          actionText="Lihat data →"
+          actionText="Lihat data"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
           onClick={() => setIsDrawerOpen(true)}
         />
         <MetricCard
           title="BELUM LUNAS"
           value={data.metrics.belumLunas.value}
           desc={data.metrics.belumLunas.desc}
-          actionText="Lihat data →"
+          actionText="Lihat data"
+          actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
           onClick={() => setIsDrawerOpen(true)}
         />
       </div>

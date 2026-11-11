@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import PageHeader from '../../../components/ui/PageHeader';
 import MetricCard from './components/MetricCard';
 import DashboardChart from './components/DashboardChart';
@@ -9,6 +11,7 @@ import { mockDashboardData } from '../../../data/mockSuperAdminData';
 import { Settings, ArrowRight } from 'lucide-react';
 
 export default function DashboardPlatform() {
+  const navigate = useNavigate();
   const [timeRange, setTimeRange] = useState('20-hari');
   const [dataScope, setDataScope] = useState('semua-tenant');
   const [isLoading, setIsLoading] = useState(false);
@@ -112,6 +115,7 @@ return (
         desc={dashboardData.metrics.totalTenants.desc}
         actionText="Lihat Tenant"
         actionIcon={<ArrowRight className="w-3.5 h-3.5" />}
+        navigate={() => navigate('/super-admin/tenant')}
       />
       <MetricCard
         title="TENANT AKTIF"

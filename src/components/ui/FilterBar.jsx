@@ -25,7 +25,7 @@ export default function FilterBar({
             variant="secondary"
             size="md"
             onClick={onApply}
-            className="flex-1 bg-surface-super-admin hover:bg-surface-accent-super-admin text-on-emphasis-super-admin border border-border-super-admin"
+            className="flex-1 bg-surface-super-admin hover:bg-surface-accent-super-admin text-muted-super-admin border border-border-super-admin"
           >
             {applyText}
           </Button>
@@ -33,7 +33,7 @@ export default function FilterBar({
             variant="ghost"
             size="md"
             onClick={onReset}
-            className="px-3 text-muted-super-admin"
+            className="px-3 text-muted-super-admin hover:text-error-hover-super-admin"
           >
             {resetText}
           </Button>
