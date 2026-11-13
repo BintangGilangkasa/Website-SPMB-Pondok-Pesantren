@@ -15,7 +15,7 @@ export default function ProgramsSection({ programs }) {
       {programs.length === 0 ? (
         <EmptyState>Informasi program pendidikan belum tersedia.</EmptyState>
       ) : (
-        <HorizontalScrollRail label="Program pendidikan" showHint={programs.length > 1}>
+        <HorizontalScrollRail label="Program pendidikan" showPagination={programs.length > 1}>
           {programs.map((program) => (
             <article
               key={program.id}

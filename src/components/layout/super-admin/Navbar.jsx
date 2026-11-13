@@ -1,12 +1,14 @@
-    // src/components/layout/Navbar.jsx
+// src/components/layout/Navbar.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Badge from '../../ui/Badge';
 import Button from '../../ui/Button';
+import { ModalConfirm } from '../../ui';
 import { Menu, Bell, Settings, LogOut } from 'lucide-react';
 
 export default function Navbar({ onToggleSidebar }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false)
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -21,16 +23,17 @@ export default function Navbar({ onToggleSidebar }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleLogout = () => {
+  const handleConfirmLogout = () => {
+    setIsLogoutModalOpen(false)
     setIsDropdownOpen(false);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    navigate('/login');
+    navigate('../../../pages/4-super-admin/auth/LoginSuperAdmin');
   };
 
   return (
     <header className="bg-surface-super-admin border-b border-border-super-admin px-4 py-2.5 sm:px-6 h-16 flex items-center justify-between sticky top-0 z-30 shadow-xs">
-      
+
       {/* Sisi Kiri: Hamburger Button (Mobile) & Title Scope Status */}
       <div className="flex items-center gap-3">
         {/* Tombol Hamburger dengan Reusable Button */}
@@ -47,7 +50,7 @@ export default function Navbar({ onToggleSidebar }) {
 
       {/* Sisi Kanan: Status Notifikasi & Profile Dropdown */}
       <div className="flex items-center gap-3">
-        
+
         {/* Button Alert Notifikasi */}
         <button
           type="button"
@@ -106,15 +109,28 @@ export default function Navbar({ onToggleSidebar }) {
                 <div className="border-t border-border-super-admin my-1" />
 
                 <button
+                  variant="danger"
                   type="button"
-                  onClick={handleLogout}
+                  onClick={() => setIsLogoutModalOpen(true)}
                   className="w-full text-left px-3 py-2 text-xs font-semibold text-error-foreground hover:bg-error-surface rounded-lg transition-colors flex items-center gap-2"
                 >
                   <LogOut className="w-3.5 h-3.5" />
                   <span>Keluar / Logout</span>
                 </button>
               </div>
+
+              <ModalConfirm
+                isOpen={isLogoutModalOpen}
+                onClose={() => setIsLogoutModalOpen(false)}
+                onConfirm={handleConfirmLogout}
+                title="Konfirmasi Keluar Sesi"
+                description="Apakah Anda yakin ingin keluar dari Portal Super Admin TKI?"
+                confirmText="Ya, Selesai & Keluar"
+                cancelText="Batal"
+                variant="danger"
+              />
             </div>
+
           )}
         </div>
 

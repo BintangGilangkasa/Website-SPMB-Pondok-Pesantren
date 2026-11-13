@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import SantriSidebar from '../components/layout/santri/SantriSidebar';
-import SantriNavbar from '../components/layout/santri/SantriNavbar';
+import SantriSidebar from '../components/layout/santri/Sidebar';
+import SantriNavbar from '../components/layout/santri/Navbar';
 
 export default function SantriLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

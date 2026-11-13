@@ -18,9 +18,12 @@ export const landingPageData = {
   },
   about: {
     badge: "PROFIL PESANTREN",
-    title: "Tentang Pesantren Modern Al-Hikmah",
+    title: "Pesantren Modern Al-Hikmah",
     description:
       "Pesantren Modern Al-Hikmah adalah lembaga pendidikan Islam terpadu yang mengombinasikan kurikulum pesantren (Tahfidz & Kitab Turats) dengan kurikulum sains-teknologi nasional. Didukung fasilitas asrama yang representatif dan pengajar profesional, kami berkomitmen mencetak generasi pembelajar yang unggul, mandiri, dan berakhlakul karimah.",
+    imageUrl: "",
+    imageAlt: "Foto profil Pesantren Modern Al-Hikmah",
+    imageCaption: "",
   },
   educationList: [
     {

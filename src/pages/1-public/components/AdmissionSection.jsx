@@ -19,7 +19,7 @@ export default function AdmissionSection({ offerings = [] }) {
         {items.length === 0 ? (
           <EmptyState tone="inverse">Informasi jalur penerimaan belum tersedia.</EmptyState>
         ) : (
-          <HorizontalScrollRail label="Jalur penerimaan" showHint={items.length > 1} tone="inverse">
+          <HorizontalScrollRail label="Jalur penerimaan" showPagination={items.length > 1} tone="inverse">
             {items.map((offering, index) => (
               <article
                 key={offering.id || index}

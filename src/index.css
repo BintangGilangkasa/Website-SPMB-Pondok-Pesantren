@@ -75,6 +75,16 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (max-width: 767px) {
+    .landing-scroll-rail {
+        scrollbar-width: none;
+    }
+
+    .landing-scroll-rail::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;

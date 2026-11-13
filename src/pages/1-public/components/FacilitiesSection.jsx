@@ -12,7 +12,7 @@ export default function FacilitiesSection({ environments }) {
         {environments.length === 0 ? (
           <EmptyState>Informasi fasilitas dan foto resmi belum tersedia.</EmptyState>
         ) : (
-          <HorizontalScrollRail label="Fasilitas pesantren" showHint={environments.length > 1}>
+          <HorizontalScrollRail label="Fasilitas pesantren" showPagination={environments.length > 1}>
             {environments.map((environment) => (
               <article
                 key={environment.id}

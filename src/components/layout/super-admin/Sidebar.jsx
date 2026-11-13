@@ -26,10 +26,10 @@ export default function Sidebar({ isOpen, onClose }) {
   ];
 
   const handleConfirmLogout = () => {
+    setIsLogoutModalOpen(false);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    setIsLogoutModalOpen(false);
-    navigate('/login');
+    navigate('../../../pages/4-super-admin/auth/LoginSuperAdmin');
   };
 
   return (
