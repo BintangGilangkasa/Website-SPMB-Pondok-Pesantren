@@ -1,9 +1,7 @@
-// src/components/layout/Sidebar.jsx
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Button from '../../ui/Button';
-import Badge from '../../ui/Badge';
-import ModalConfirm from '../../ui/ModalConfirm';
+import { Button, ModalConfirm, Profile } from '@/components/ui';
+import { useAuth } from '../../../context/useAuth';
 
 import logo from '../../../assets/icons/tki.svg';
 import { Home, ChartArea, User, Wallet, Settings, LogOut, X } from 'lucide-react';
@@ -11,6 +9,7 @@ import { Home, ChartArea, User, Wallet, Settings, LogOut, X } from 'lucide-react
 export default function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   // Helper penanda rute aktif (cocok untuk sub-path)
@@ -27,9 +26,8 @@ export default function Sidebar({ isOpen, onClose }) {
 
   const handleConfirmLogout = () => {
     setIsLogoutModalOpen(false);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('../../../pages/4-super-admin/auth/LoginSuperAdmin');
+    logout();
+    navigate('/super-admin/login');
   };
 
   return (
@@ -113,21 +111,21 @@ export default function Sidebar({ isOpen, onClose }) {
 
         {/* SISI BAWAH: Profil User & Logout Button */}
         <div className="pt-3 border-t border-sidebar-border-super-admin mt-4 space-y-2">
-          <div className="flex items-center gap-3 px-2 py-1.5">
-            <div className="w-8 h-8 rounded-full bg-sidebar-deep-super-admin border border-sidebar-active-border-super-admin flex items-center justify-center text-xs font-bold text-sidebar-foreground-super-admin shrink-0">
-              SA
-            </div>
-            <div className="text-left leading-tight truncate">
-              <p className="text-xs font-bold text-on-emphasis-super-admin truncate">Super Admin TKI</p>
-              <p className="text-[10px] text-sidebar-muted-super-admin truncate">admin@spmbtki.id</p>
-            </div>
-          </div>
+          <Profile
+            name={user?.name || 'Super Admin TKI'}
+            description={user?.email || 'Super Admin TKI'}
+            className="gap-3 px-2 py-1.5"
+            avatarClassName="h-8 w-8 rounded-full border border-sidebar-active-border-super-admin bg-sidebar-deep-super-admin text-xs font-bold text-sidebar-foreground-super-admin"
+            detailsClassName="flex flex-col text-left leading-tight"
+            nameClassName="text-xs font-bold text-on-emphasis-super-admin"
+            descriptionClassName="text-[10px] text-sidebar-muted-super-admin"
+          />
 
           {/* Button Logout */}
           <Button
             variant="danger"
             size="sm"
-            className="w-full bg-error-strong-super-admin hover:bg-error-hover-super-admin text-on-emphasis-super-admin border border-error-strong-super-admin flex items-center justify-center gap-2"
+            className="w-full hover:bg-error-hover-super-admin text-on-emphasis-super-admin border border-error-strong-super-admin flex items-center justify-center gap-2"
             onClick={() => setIsLogoutModalOpen(true)}
           >
             <LogOut className="w-3.5 h-3.5" />

@@ -2,28 +2,39 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Layouts
-import SantriAuthLayout from '../pages/2-santri/auth/SantriAuthLayout';
+import SantriAuthLayout from '../layouts/SantriAuthLayout';
 import AdminInstitusiLayout from '../layouts/AdminInstitusiLayout';
 import SuperAdminLayout from '../layouts/SuperAdminLayout';
+import ProtectedRoute from './ProtectedRoute';
+import GuestRoute from './GuestRoute';
 
 // 1. Public Landing Page
-import LandingPage from '../pages/1-public/LandingPage';
+import LandingPage from '../pages/public/LandingPage';
 
 // 2. Auth Pages (3 Pintu Masuk Terpisah)
-import LoginSantri from '../pages/2-santri/auth/LoginSantri';
-import LoginAdmin from '../pages/3-admin-institusi/auth/LoginAdmin';
-import LoginSuperAdmin from '../pages/4-super-admin/auth/LoginSuperAdmin';
+import LoginSantri from '../pages/santri/auth/LoginSantri';
+import RegistrationSantri from '../pages/santri/auth/RegistrationSantri';
+import ForgotPasswordSantri from '../pages/santri/auth/ForgotPasswordSantri';
+import BerandaPage from '../pages/santri/beranda/BerandaPage';
+import LoginAdmin from '../pages/admin-institusi/auth/LoginAdmin';
+import LoginSuperAdmin from '../pages/super-admin/auth/LoginSuperAdmin';
+import ResetPasswordSuperAdmin from '../pages/super-admin/auth/ResetPasswordSuperAdmin';
 
 // 3. Pages Admin Institusi
-import CmsLandingPage from '../pages/3-admin-institusi/cms-landing/CmsLandingPage';
+import DashboardAdminInstitusi from '../pages/admin-institusi/Operasional/DashboardAdminInstitusi';
+import PendaftarPlatform from '../pages/admin-institusi/Operasional/PendaftarPlatform'
+import SeleksiHasil from '../pages/admin-institusi/Operasional/SeleksiHasil';
+import PembayaranPlatform from '../pages/admin-institusi/Operasional/PembayaranPlatform';
+import DaftarUlang from '../pages/admin-institusi/Operasional/DaftarUlang';
+import Laporan from '../pages/admin-institusi/Operasional/Laporan';
+import CmsLandingPage from '../pages/admin-institusi/konfiguration/CmsLandingPage';
 
 // 4. Pages Super Admin TKI
-import ResetPasswordSuperAdmin from '../pages/4-super-admin/auth/ResetPasswordSuperAdmin';
-import DashboardPlatform from '../pages/4-super-admin/01-dashboard/DashboardPlatform';
-import TenantManagement from '../pages/4-super-admin/02-tenant/TenantManagement';
-import UsersAndAccess from '../pages/4-super-admin/03-users-access/UsersAndAccess';
-import TransactionsMonitoring from '../pages/4-super-admin/04-transactions/TransactionsMonitoring';
-import PlatformSettings from '../pages/4-super-admin/05-platform-settings/PlatformSettings';
+import DashboardPlatform from '../pages/super-admin/dashboard/DashboardPlatform';
+import TenantManagement from '../pages/super-admin/tenant/TenantManagement';
+import UsersAndAccess from '../pages/super-admin/users-access/UsersAndAccess';
+import TransactionsMonitoring from '../pages/super-admin/transactions/TransactionsMonitoring';
+import PlatformSettings from '../pages/super-admin/platform-settings/PlatformSettings';
 
 export default function AppRoutes() {
   return (
@@ -36,31 +47,51 @@ export default function AppRoutes() {
 
       {/* 2. AUTH PORTAL WALI & SANTRI (Split Screen Layout) */}
       <Route element={<SantriAuthLayout />}>
-        <Route path="/login" element={<LoginSantri />} />
-        {/* Nanti tambahkan /register, /verify-otp, /forgot-password di sini */}
+        <Route element={<GuestRoute />}>
+          <Route path="/login" element={<LoginSantri />} />
+          <Route path="/register" element={<RegistrationSantri />} />
+          <Route path="/forgot-password" element={<ForgotPasswordSantri />} />
+        </Route>
+      </Route>
+      <Route element={<ProtectedRoute allowedRoles={['santri']} loginPath="/login" />}>
+        <Route path="/santri/beranda" element={<BerandaPage />} />
       </Route>
 
       {/* 3. ADMIN INSTITUSI (BACK OFFICE) */}
-      <Route path="/admin-institusi/login" element={<LoginAdmin />} />
-      <Route path="/admin-institusi" element={<AdminInstitusiLayout />}>
-        <Route index element={<Navigate to="/admin-institusi/landing-page" replace />} />
-        <Route path="landing-page" element={<CmsLandingPage />} />
+      <Route element={<GuestRoute />}>
+        <Route path="/admin-institusi/login" element={<LoginAdmin />} />
+      </Route>
+      <Route element={<ProtectedRoute allowedRoles={['admin_institusi']} loginPath="/admin-institusi/login" />}>
+        <Route path="/admin-institusi" element={<AdminInstitusiLayout />}>
+          <Route index element={<Navigate to="/admin-institusi/dashboard" replace />} />
+          <Route path="dashboard" element={<DashboardAdminInstitusi />} />
+          <Route path="pendaftar" element={<PendaftarPlatform />}/>
+          <Route path="seleksi-hasil" element={<SeleksiHasil />} />
+          <Route path="pembayaran" element={<PembayaranPlatform />} />
+          <Route path="daftar-ulang" element={<DaftarUlang />} />
+          <Route path="laporan" element={<Laporan />} />
+          <Route path="landing-page" element={<CmsLandingPage />} />
+        </Route>
       </Route>
 
       {/* 4. SUPER ADMIN TKI */}
-      <Route path="/super-admin/login" element={<LoginSuperAdmin />} />
+      <Route element={<GuestRoute />}>
+        <Route path="/super-admin/login" element={<LoginSuperAdmin />} />
+      </Route>
       <Route path="/super-admin/reset-password" element={<ResetPasswordSuperAdmin />} />
-      <Route path="/super-admin" element={<SuperAdminLayout />}>
-        <Route index element={<Navigate to="/super-admin/dashboard" replace />} />
-        <Route path="dashboard" element={<DashboardPlatform />} />
-        <Route path="tenant" element={<TenantManagement />} />
-        <Route path="users-access" element={<UsersAndAccess />} />
-        <Route path="transactions" element={<TransactionsMonitoring />} />
-        <Route path="platform-settings" element={<PlatformSettings />} />
+      <Route element={<ProtectedRoute allowedRoles={['super_admin']} loginPath="/super-admin/login" />}>
+        <Route path="/super-admin" element={<SuperAdminLayout />}>
+          <Route index element={<Navigate to="/super-admin/dashboard" replace />} />
+          <Route path="dashboard" element={<DashboardPlatform />} />
+          <Route path="tenant" element={<TenantManagement />} />
+          <Route path="users-access" element={<UsersAndAccess />} />
+          <Route path="transactions" element={<TransactionsMonitoring />} />
+          <Route path="platform-settings" element={<PlatformSettings />} />
+        </Route>
       </Route>
 
-      {/* 5. FALLBACK 404 (Letakkan di luar layout mana pun) */}
+      {/* 5. FALLBACK 404 */}
       <Route path="*" element={<Navigate to="/landing-page" replace />} />
     </Routes>
   );
-} 
+}

@@ -1,4 +1,3 @@
-// src/components/ui/charts/BaseAreaChart.jsx
 import React from 'react';
 import {
   ResponsiveContainer,

@@ -18,6 +18,37 @@ export const mockDashboardData = {
     { date: "30-10", count: 81 }
   ],
 
+  // SA-01: Mock trend samples grouped for the dashboard's 7/30/90-day filters.
+  applicationTrendsByPeriod: {
+    7: [
+      { date: "17-11", count: 38 },
+      { date: "18-11", count: 45 },
+      { date: "19-11", count: 42 },
+      { date: "20-11", count: 56 },
+      { date: "21-11", count: 51 },
+      { date: "22-11", count: 63 },
+      { date: "23-11", count: 58 }
+    ],
+    30: [
+      { date: "25-10", count: 42 },
+      { date: "30-10", count: 57 },
+      { date: "04-11", count: 49 },
+      { date: "09-11", count: 67 },
+      { date: "14-11", count: 76 },
+      { date: "19-11", count: 62 },
+      { date: "23-11", count: 81 }
+    ],
+    90: [
+      { date: "25-08", count: 31 },
+      { date: "09-09", count: 44 },
+      { date: "24-09", count: 38 },
+      { date: "09-10", count: 56 },
+      { date: "24-10", count: 49 },
+      { date: "08-11", count: 67 },
+      { date: "23-11", count: 81 }
+    ]
+  },
+
   // SA-01: Tenant Status Breakdown
   tenantStatusBreakdown: {
     aktif: { count: 12, percentage: "66.7%" },

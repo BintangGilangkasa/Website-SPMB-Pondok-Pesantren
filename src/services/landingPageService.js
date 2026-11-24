@@ -70,6 +70,14 @@ export function saveLandingPageAboutDraft(about) {
   });
 }
 
+export function saveLandingPageDraft(content) {
+  return request('/api/admin/landing-page/draft', {
+    method: 'PATCH',
+    body: { content },
+    authenticated: true,
+  });
+}
+
 export function publishLandingPage() {
   return request('/api/admin/landing-page/publish', {
     method: 'POST',

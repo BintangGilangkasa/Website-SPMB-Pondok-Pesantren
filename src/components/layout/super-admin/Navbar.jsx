@@ -1,16 +1,15 @@
-// src/components/layout/Navbar.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Badge from '../../ui/Badge';
-import Button from '../../ui/Button';
-import { ModalConfirm } from '../../ui';
+import { Button, ModalConfirm, Profile } from '@/components/ui';
 import { Menu, Bell, Settings, LogOut } from 'lucide-react';
+import { useAuth } from '../../../context/useAuth';
 
 export default function Navbar({ onToggleSidebar }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false)
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   // Handle Close Dropdown saat mengklik area luar
   useEffect(() => {
@@ -26,9 +25,8 @@ export default function Navbar({ onToggleSidebar }) {
   const handleConfirmLogout = () => {
     setIsLogoutModalOpen(false)
     setIsDropdownOpen(false);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('../../../pages/4-super-admin/auth/LoginSuperAdmin');
+    logout();
+    navigate('/super-admin/login');
   };
 
   return (
@@ -67,18 +65,15 @@ export default function Navbar({ onToggleSidebar }) {
             onClick={() => setIsDropdownOpen((prev) => !prev)}
             className="flex items-center gap-2 cursor-pointer p-1 rounded-lg hover:bg-surface-accent-super-admin transition-colors focus:outline-none border border-transparent hover:border-border-super-admin"
           >
-            <div className="w-8 h-8 rounded-full bg-sidebar-super-admin text-sidebar-foreground-super-admin font-serif font-bold text-xs flex items-center justify-center shadow-xs">
-              SA
-            </div>
-
-            <div className="hidden sm:flex flex-col text-left leading-none">
-              <span className="text-xs font-bold text-ink-super-admin">
-                Super Admin TKI
-              </span>
-              <span className="text-[10px] text-muted-super-admin mt-0.5">
-                platform_owner
-              </span>
-            </div>
+            <Profile
+              name={user?.name || 'Super Admin TKI'}
+              description={user?.email || 'Super Admin TKI'}
+              className="gap-2 "
+              avatarClassName="flex h-8 w-8 items-center justify-center rounded-full bg-sidebar-super-admin font-serif text-xs font-bold text-sidebar-foreground-super-admin shadow-xs"
+              detailsClassName="hidden text-left leading-none sm:flex sm:flex-col"
+              nameClassName="text-xs font-bold text-ink-super-admin"
+              descriptionClassName="mt-0.5 text-[10px] text-muted-super-admin"
+            />
 
             <span className={`text-[10px] text-muted-super-admin transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}>
               ▼
@@ -88,10 +83,14 @@ export default function Navbar({ onToggleSidebar }) {
           {/* Menu Dropdown Melayang */}
           {isDropdownOpen && (
             <div className="absolute right-0 mt-2 w-56 bg-surface-super-admin rounded-xl shadow-lg border border-border-super-admin py-2 z-50">
-              <div className="px-4 py-2 border-b border-border-super-admin mb-1">
-                <p className="text-xs font-serif font-bold text-ink-super-admin">Super Admin TKI</p>
-                <p className="text-[10px] text-muted-super-admin truncate">admin@spmbtki.id</p>
-              </div>
+              <Profile
+                name={user?.name || 'Super Admin TKI'}
+                description={user?.email || 'Super Admin TKI'}
+                showAvatar={false}
+                className="mb-1 border-b border-border-super-admin px-4 py-2"
+                nameClassName="font-sans text-xs font-semibold text-ink-super-admin"
+                descriptionClassName="text-[10px] text-muted-super-admin"
+              />
 
               <div className="px-1.5 space-y-0.5">
                 <button

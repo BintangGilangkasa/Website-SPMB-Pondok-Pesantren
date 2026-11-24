@@ -1,4 +1,3 @@
-// src/components/ui/index.js
 export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './card/Card';
 export { default as Button } from './Button';
 export { default as Badge } from './Badge';
@@ -7,3 +6,10 @@ export { default as ModalConfirm } from './ModalConfirm';
 export { default as PageHeader } from './PageHeader';
 export { default as FilterBar } from './FilterBar';
 export { default as SearchInput } from './SearchInput';
+export { default as Profile } from './Profile';
+export { default as AuthAlert } from './AuthAlert';
+export { default as PasswordInput } from './PasswordInput';
+export { default as Drawer } from './Drawer';
+export { default as Select } from './Select';
+export { default as BaseAreaChart } from './charts/BaseAreaChart';
+export { default as BaseBarChart } from './charts/BaseBarChart';

@@ -1,64 +1,41 @@
-// src/components/ui/Drawer.jsx
-import React, { useEffect } from 'react';
+import React from 'react';
+import { X } from 'lucide-react';
+import { useDialogFocus } from '../../hooks/useDialogFocus';
 
-export default function Drawer({ isOpen, onClose, title, subtitle, children }) {
-  // Menutup drawer dengan tombol ESC
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
+export default function Drawer({ isOpen, onClose, title, subtitle, children, footer }) {
+  const titleId = React.useId();
+  const drawerRef = useDialogFocus(isOpen, onClose);
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-overlay-super-admin/40 backdrop-blur-xs transition-opacity animate-fadeIn">
-      {/* Backdrop overlay */}
-      <div className="fixed inset-0" onClick={onClose} />
-
-      {/* Drawer Container Panel */}
-      <div className="relative w-full max-w-md bg-surface-super-admin h-full shadow-2xl flex flex-col border-l border-border-super-admin z-10 font-sans text-ink-super-admin">
-        
-        {/* Header Drawer */}
-        <div className="p-5 border-b border-border-super-admin bg-surface-super-admin flex items-center justify-between">
+    <div className="fixed inset-0 z-50 flex justify-end bg-overlay-super-admin/40">
+      <button type="button" onClick={onClose} aria-label="Tutup detail" className="absolute inset-0" />
+      <aside
+        ref={drawerRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative z-10 flex h-full w-full max-w-2xl flex-col border-l border-border-super-admin bg-white font-sans text-ink-super-admin shadow-2xl"
+      >
+        <header className="flex items-start justify-between gap-4 border-b border-border-super-admin p-5">
           <div>
-            <h3 className="text-base font-serif font-bold text-ink-super-admin">{title}</h3>
-            {subtitle && <p className="text-[11px] text-muted-super-admin mt-0.5">{subtitle}</p>}
+            <h2 id={titleId} className="font-serif text-lg font-bold">{title}</h2>
+            {subtitle && <p className="mt-1 text-xs leading-relaxed text-muted-super-admin">{subtitle}</p>}
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="w-7 h-7 rounded-full bg-surface-accent-super-admin text-muted-super-admin hover:bg-surface-accent-super-admin flex items-center justify-center text-xs font-bold transition-colors cursor-pointer"
+            aria-label="Tutup detail"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-border-super-admin text-ink-super-admin hover:bg-surface-muted-super-admin focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-admin-institusi"
           >
-            ✕
+            <X className="h-4 w-4" aria-hidden="true" />
           </button>
-        </div>
-
-        {/* Content Body (Scrollable) */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-5">
-          {children}
-        </div>
-
-        {/* Footer Drawer */}
-        <div className="p-4 border-t border-border-super-admin bg-surface-super-admin flex justify-end">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 bg-surface-super-admin border border-border-super-admin hover:bg-surface-accent-super-admin text-ink-super-admin text-xs font-semibold rounded-lg transition-colors cursor-pointer"
-          >
-            Tutup Detail
-          </button>
-        </div>
-
-      </div>
+        </header>
+        <div className="flex-1 space-y-5 overflow-y-auto p-5">{children}</div>
+        {footer && <footer className="border-t border-border-super-admin bg-white p-4">{footer}</footer>}
+      </aside>
     </div>
   );
 }

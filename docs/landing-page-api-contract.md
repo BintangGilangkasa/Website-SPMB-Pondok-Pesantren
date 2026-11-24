@@ -14,6 +14,7 @@ Service mengirim token sebagai `Authorization: Bearer <token>` dari `localStorag
 | `GET` | `/api/admin/landing-page/draft` | Admin institusi | Membaca draft landing page; `data` berisi `{ "content": { ... }, "status": "draft" }`. |
 | `POST` | `/api/admin/landing-page/media` | Admin institusi | Mengunggah foto profil sebagai `multipart/form-data`, field `file`; `data` berisi URL media. |
 | `PATCH` | `/api/admin/landing-page/draft/about` | Admin institusi | Menyimpan perubahan section profil tanpa menimpa section lain; body berisi objek `about`. |
+| `PATCH` | `/api/admin/landing-page/draft` | Admin institusi | Menyimpan seluruh konten draft secara atomik; body berisi `{ "content": { ...landingPageData } }`. Endpoint ini dipakai editor semua section. |
 | `POST` | `/api/admin/landing-page/publish` | Admin institusi | Menerbitkan draft aktif; `data` dapat berisi status dan waktu publikasi. |
 
 Respons sukses dapat memakai pembungkus `{ "data": ... }`. Respons error sebaiknya memakai `{ "message": "..." }`; frontend menampilkan pesan itu sebagai status.
@@ -34,6 +35,8 @@ Endpoint publik mengembalikan objek yang kompatibel dengan `landingPageData.js`.
 ```
 
 Upload media mengembalikan URL stabil, misalnya `{ "data": { "url": "https://media.example.org/tenant/profil.webp" } }`. Frontend mengirim `imageUrl`, `imageAlt`, dan `imageCaption` saat menyimpan profil.
+
+Editor backoffice menyimpan seluruh section melalui endpoint draft penuh. Backend perlu melakukan validasi tiap section dan menyimpan draft secara atomik agar perubahan satu bagian tidak menghapus bagian lain. Draft lokal di browser hanya untuk pratinjau dan tidak dibaca oleh halaman publik.
 
 ## Tanggung jawab backend
 

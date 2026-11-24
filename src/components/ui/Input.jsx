@@ -1,4 +1,3 @@
-// src/components/ui/Input.jsx
 import React from 'react';
 
 export default function Input({

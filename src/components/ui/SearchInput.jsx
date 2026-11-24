@@ -1,4 +1,3 @@
-// src/components/ui/SearchInput.jsx
 import React from 'react';
 import { Search } from 'lucide-react';
 
